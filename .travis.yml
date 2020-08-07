@@ -6,7 +6,7 @@ git:
 
 # Cache settings
 cache:
-  timeout: 600
+  timeout: 900
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
@@ -16,7 +16,7 @@ before_cache:
 
 env:
   - IDEA_VERSION=LATEST-EAP-SNAPSHOT
-  - IDEA_VERSION=2019.3
+  - IDEA_VERSION=2020.1
 
 before_install:
   - chmod +x gradlew
@@ -35,8 +35,7 @@ notifications:
 
 deploy:
   provider: releases
-  api_key:
-    secure: "${GITHUB_KEY}"
+  api_key: ${GITHUB_KEY}
   skip_cleanup: true
   file_glob: true
   file: "build/distributions/lombok-plugin-*.zip"
